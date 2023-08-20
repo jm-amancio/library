@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="library.js" defer></script>
+    <title>Library</title>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>bookshelf</title><path d="M9 3V18H12V3H9M12 5L16 18L19 17L15 4L12 5M5 5V18H8V5H5M3 19V21H21V19H3Z" /></svg>
+            <h1>Library</h1>
+        </div>
+        <button type="button" id="add-book-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>plus</title><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg>
+            Add Book
+        </button>
+    </div>
+    <div class="main-content">
+        <div class="content">
+            <div class="card">
+                <h2>The Hobbit</h2>
+                <p>Title: The Hobbit</p>
+                <p>Author: J.R.R. Tolkien</p>
+                <p>Pages: Pages</p>
+                <p>Reading: Yes/No</p>
+                <div class="buttons">
+                    <button class="edit">Edit</button>
+                    <button class="remove">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Copyright © JM 2023</p>
+        <p>SVG Credits to Pictogrammers</p>
+    </div>
+    
+    <dialog id="book-form">
+        <form>
+            <fieldset>
+                <legend>Book Information</legend>
+                <ul>
+                    <li>
+                        <label for="book-title">Title: <span aria-label="required">*</span></label>
+                        <input type="text" name="user_book-title" id="book-title" required/>
+                    </li>
+                    <li>
+                        <label for="book-author">Author: <span aria-label="required">*</span></label>
+                        <input type="text" name="user_book-author" id="book-author" required/>
+                    </li>
+                    <li>
+                        <label for="book-pages">Number of Pages: <span aria-label="required">*</span></label>
+                        <input type="number" name="user_book-pages" id="book-pages" min="1" max="9999" required/>
+                    </li>
+                </ul>
+                <div>
+                    <label>Reading Status: <span aria-label="required">*</span></label>
+                    <ul>
+                        <li>
+                            <label for="book-status-unread">
+                                <input type="radio" name="user_book-status" id="book-status-unread" checked/>
+                                Unread
+                            </label>
+                        </li>
+                        <li>
+                            <label for="book-status-read">
+                                <input type="radio" name="user_book-status" id="book-status-read" />
+                                Read
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <button id="cancel-button" form method="dialog">Cancel</button>
+                    <button id="confirm-button">Confirm</button>
+                </div>
+            </fieldset>
+        </form>
+    </dialog>
+
+</body>
+</html>

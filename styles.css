@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #b8fadd;
+    min-height: 100vh;
+    font-family: Roboto, Arial, Arial, Helvetica, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+}
+
+body > div {
+    padding: 10px;
+}
+
+.header {
+    background-color: #43e5a0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo-container,
+.header button {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo-container svg {
+    width: 50px;
+}
+
+.header button svg {
+    width: 20px;
+    text-align: center;
+}
+
+.header button {
+    background-color: #0fa968;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #108554;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+.header button:hover {
+    background-color: #108554;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.main-content > .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.main-content > .content > div.card {
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+
+.footer {
+    background-color: #43e5a0;
+    height: 50px;
+    margin-top: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+dialog > form > fieldset {
+    padding: 10px;
+}
+
+dialog > form > fieldset ul {
+    list-style-type: none;
+}
+
+dialog > form > fieldset ul li {
+    margin-bottom: 5px;
+}
+
+dialog > form > fieldset input[type="text"] {
+    width: 100%;
+    padding: 3px;
+}
+
+dialog > form > fieldset input[type="number"] {
+    width: minmax(20%, 30%);
+    padding: 3px;
+}
+
+dialog > form > fieldset button {
+    width: 40%;
+    background-color: #1acd81;
+    padding: 5px;
+    border: 5px;
+}
+
+dialog > form > fieldset button#cancel-button {
+    background-color: #dafeef;
+}
+
+dialog > form > fieldset button:hover {
+    background-color: #0fa968;
+}
