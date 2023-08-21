@@ -12,6 +12,20 @@ function addBookToLibrary(book){
     updateDisplay();
 }
 
+function removeFromLibrary(bookIndex){
+    myLibrary.splice(bookIndex, 1);
+    updateDisplay();
+}
+
+function editReadStatusLibrary(bookIndex){
+    if (myLibrary[bookIndex].haveRead === 'on') {
+        myLibrary[bookIndex].haveRead = 'off';
+    } else {
+        myLibrary[bookIndex].haveRead = 'on';
+    } 
+    updateDisplay();  
+}
+
 // Update HTML main-content 
 function updateDisplay() {
     const content = document.querySelector('.content');
@@ -19,6 +33,7 @@ function updateDisplay() {
         content.removeChild(content.firstChild);
     }
 
+    let count = 0;
     myLibrary.forEach((book) => {
         let div = document.createElement('div');
         div.classList.add('card');
@@ -42,8 +57,16 @@ function updateDisplay() {
         let divButtons = document.createElement('div');
         let button_edit = document.createElement('button');
         button_edit.textContent = `Edit`;
+        button_edit.setAttribute('value', `${count}`);
+        button_edit.addEventListener('click', (e) => {
+            editReadStatusLibrary(e.target.value);
+        })
         let button_remove = document.createElement('button');
         button_remove.textContent = `Remove`;
+        button_remove.setAttribute('value', `${count}`);
+        button_remove.addEventListener('click', (e) => {
+            removeFromLibrary(e.target.value);
+        });
         divButtons.appendChild(button_edit);
         divButtons.appendChild(button_remove);
         divButtons.classList.add('buttons');
@@ -69,7 +92,6 @@ confirmBookButton.addEventListener("click", (e) => {
 
     const book = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
     addBookToLibrary(book);
-    
     bookForm.close();
 });
 cancelBookButton.addEventListener("click", (e) => {
